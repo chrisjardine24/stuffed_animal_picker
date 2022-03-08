@@ -5,7 +5,6 @@ from tkinter import ttk
 
 
 from stuffed import random_animal
-#x = "what animal?"
 x = str(random_animal())
 
 window = tk.Tk()
@@ -20,19 +19,12 @@ mn.add_cascade(label='File', menu=file_menu)
 file_menu.add_command(label='New')
 file_menu.add_command(label='About')
 
-lbl = tk.LabelFrame(
-    window, 
-    text="test text", 
-    bg='white',
-    fg='black', 
-    font=(20)
-    ).pack(pady=10)
-
-def show_msg():
+def update_button():
     x = random_animal()
-    messagebox.showinfo("Message",x)
+    btn.configure(text=x)
 
-btn = tk.Button(window,text="Random Animal", command=show_msg()).pack(pady=30)
+btn = tk.Button(window, text="Which Stuffed Animal?", command=update_button)
+btn.pack()
 
 window.mainloop()
 
